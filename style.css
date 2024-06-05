@@ -1,5 +1,333 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+body {
+  /* background: hsl(230, 17%, 14%); */
+  background: hsl(230, 17%, 14%);
+  color: hsl(0, 0%, 100%);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.up {
+  color: hsl(163, 72%, 41%);
+}
+
+.down {
+  color: hsl(356, 69%, 56%);
+}
+/* ----------------------------------Text stylings---------------------------------- */
+h1 {
+  font-size: 1.7rem;
+}
+
+.overview-header {
+  margin-top: 3rem;
+}
+
+.subtitle,
+.username,
+.followers-card-body-text,
+.overview-card-stats-name {
+  color: hsl(228, 34%, 66%);
+}
+
+.subtitle,
+.dark-mode,
+.username,
+.overview-card-stats-name {
+  font-weight: 700;
+}
+
+.followers-card-body-text {
+  letter-spacing: .3rem;
+  font-weight: 400;
+  font-size: .8rem;
+}
+
+.followers-card-body-numbers {
+  font-size: 3.4rem;
+}
+
+/* ------------------------------------main container----------------------------*/
+.top-bg {
+  content: '';
+  background: hsl(232, 19%, 15%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 77%;
+  z-index: -1;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.main-container {
+  margin: 0 9%;
+  padding: 2rem 0;
+}
+
+/* Followers section header */
+.followers-section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* main header right component */
+.main-header-right-component {
+  display: flex;
+  justify-content: center;
+}
+/* ------------------follower cards and overview cards containers-------------------- */
+.followers-cards-container,
+.overview-cards-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* followers card */
+.followers.card {
+  height: 13rem;
+}
+
+/* Followers-card-header */
+.followers-card-header {
+  display: flex;
+  justify-content: center;
+  margin:1.7rem 0 1.1rem 0;
+  gap: .5rem;
+}
+
+/* followers card body */
+.followers-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* followers card footer */
+.followers-card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.followers-card-footer-img,
+.overview-card-status-img {
+  width: .5rem;
+  height: .3rem;
+  margin: .2rem;
+}
+
+hr {
+  height: .25rem;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.facebook {
+  background: hsl(208, 92%, 53%);  
+}
+
+.twitter {
+  background: hsl(203, 89%, 53%);
+}
+
+.instagram {
+  background: linear-gradient(90deg, hsl(37, 97%, 70%)5%, hsl(329, 70%, 58%)100%);
+}
+
+.youtube {
+  background: hsl(348, 97%, 39%);
+}
+/* -------------------------------Overview card------------------------------- */
+.overview.card {
+  height: 8rem;
+}
+
+.overview-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 2rem;
+}
+
+.overview-card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.7rem;
+}
+
+.overview-card-footer-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.overview-card-stats-value {
+  font-size: 2rem;
+}
+/* -------------------------The switch - the box around the slider------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 47px;
+  height: 23px;
+  margin-left: 1em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, hsl(210, 78%, 56%) 5%, hsl(146, 68%, 55%) 100%);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2.5px;
+  bottom: 2.515px;
+  background-color:hsl(228, 28%, 20%);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background: hsl(230, 22%, 74%);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+  background-color:white;
+
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* -------------------------------Media queries--------------------------------- */
+@media screen and (max-width: 1320px) {
+  .followers-cards-container,
+  .overview-cards-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+}
+}
+
+@media screen and (max-width: 667px) {
+  .followers-section-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  }
+
+  .main-header-right-component {
+    border-top: white solid;
+    border-width: 1px;
+    width: 100%;
+    margin: 1.3rem 0;
+    padding-top: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .switch {
+    margin-left: auto;
+  }
+
+  .followers-cards-container,
+  .overview-cards-container{
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+}
+}
+/* ----------------------------Multiparts------------------------------ */
+.card {
+  background-color: hsl(228, 28%, 20%);
+  max-width: 100%;
+  min-width: 16.5rem;
+  border-radius: .3rem;  
+}
+
+.card.dark:hover {
+  cursor: pointer;
+-webkit-filter: brightness(140%);
+filter: brightness(140%);
+  transition: linear .15s;
+}
+
+.gray-text {
+  color: hsl(228, 34%, 66%);
+}
+
+/* --------------------------light mode ------------------------------- */
+.body-light {
+  background: hsl(0, 0%, 100%);
+  color: hsl(230, 17%, 14%);
+}
+
+.top-bg-light {
+  background: hsl(225, 100%, 98%)
+}
+
+.card-light {
+  background-color:hsl(227, 47%, 96%);
+
+}
+
+.card-light:hover {
+  cursor: pointer;
+  background: hsl(227, 47%, 91%);
+  transition: linear .15s;
+}
+
+.gray-text-light {
+  color: hsl(228, 12%, 44%);
 }
